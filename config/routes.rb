@@ -1,4 +1,17 @@
 Bshop::Application.routes.draw do
+  get 'comments/create'
+
+  get 'comments/destroy'
+	
+	resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  resources :bulletins do
+	  resources :posts
+	end
+	root 'welcome#index'
+
   resources :orders
   resources :line_items
 

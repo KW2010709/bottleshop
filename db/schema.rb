@@ -11,12 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603042936) do
+ActiveRecord::Schema.define(version: 20150604084756) do
+
+  create_table "bulletins", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "post_type",   default: "bulletin"
+  end
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "post_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -35,6 +52,16 @@ ActiveRecord::Schema.define(version: 20150603042936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "bulletin_id"
+  end
+
+  add_index "posts", ["bulletin_id"], name: "index_posts_on_bulletin_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "title"

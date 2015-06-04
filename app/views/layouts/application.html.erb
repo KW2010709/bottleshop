@@ -26,11 +26,14 @@
     <div id="topMenu">
       <ul>
         <li><a class="menuLInk" href="http://www....">Home</a></li>
-        <li><a class="menuLInk" href="http://www..../product">소주</a></li>
-        <li><a class="menuLInk" href="http://www..../product">와인</a></li>
-        <li><a class="menuLInk" href="http://www..../product">보드카</a></li>
-        <li><a class="menuLInk" href="http://www..../faq">Q&A</a></li>
-        <li><a class="menuLInk" href="http://www..../news">알림판</a></li>
+        <li class="<%= params[:bulletin_id] == '1' ? 'active' : '' %>"><%= link_to '소주', bulletin_posts_path('1') %></li>
+	<li class="<%= params[:bulletin_id] == '2' ? 'active' : '' %>"><%= link_to '와인', bulletin_posts_path('2') %></li>
+        <li class="<%= params[:bulletin_id] == '3' ? 'active' : '' %>"><%= link_to '보드카', bulletin_posts_path('3') %></li>
+	<li class="<%= params[:bulletin_id] == '4' ? 'active' : '' %>"><%= link_to 'Q&A', bulletin_posts_path('4') %></li>
+	<li class="<%= params[:bulletin_id] == '5' ? 'active' : '' %>"><%= link_to '공지사항', bulletin_posts_path('5') %></li>
+
+        <li><a class="menuLInk" href="store/index">보드카</a></li>
+
         <li><a class="menuLInk" href="http://www..../contact">Contact</a></li>    </ul>
     </div> <br>
    <div id="side">
