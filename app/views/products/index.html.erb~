@@ -10,11 +10,12 @@
     </td>
     <td class="list_description">
       <dl>
+        
         <dt><%= product.title %></dt>
         <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
       </dl>
     </td>
-    <td><%= product.price %><p>원</p></td>
+    <td><%= product.price %>원</td>
     <td class="list_actions">
       <%= link_to 'Show', product %><br/>
       <%= link_to 'Edit', edit_product_path(product) %><br/>

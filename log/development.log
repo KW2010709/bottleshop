@@ -12330,3 +12330,305 @@ Started GET "/" for 127.0.0.1 at 2015-06-04 22:03:50 +0900
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 240ms (Views: 238.1ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "products"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20150602025046"]]
+  [1m[36m (13.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_bulletin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_bulletin_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProducts (20150602025046)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "bottle_type" varchar, "title" varchar, "description" text, "image_url" varchar, "price" decimal(8), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150602025046"]]
+  [1m[36m (15.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_bulletin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_bulletin_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-13 02:15:18 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 396ms (Views: 380.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bulletins/" for 127.0.0.1 at 2015-06-13 02:15:29 -0700
+Processing by BulletinsController#index as HTML
+  [1m[35mBulletin Load (1.2ms)[0m  SELECT "bulletins".* FROM "bulletins"
+  Rendered bulletins/index.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 332ms (Views: 272.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/bulletins/1" for 127.0.0.1 at 2015-06-13 02:15:33 -0700
+Processing by BulletinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBulletin Load (0.4ms)[0m  [1mSELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered bulletins/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 169ms (Views: 88.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bulletins/1/posts" for 127.0.0.1 at 2015-06-13 02:15:35 -0700
+Processing by PostsController#index as HTML
+  Parameters: {"bulletin_id"=>"1"}
+  [1m[35mBulletin Load (7.7ms)[0m  SELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1[0m  [["id", nil]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "carts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2015-06-13 09:15:36.023105"], ["updated_at", "2015-06-13 09:15:36.023105"]]
+  [1m[35m (16.5ms)[0m  commit transaction
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."title" ASC[0m
+  Rendered posts/post_types/_store.html.erb (492.7ms)
+  Rendered posts/index.html.erb within layouts/application (537.5ms)
+  [1m[35mLineItem Exists (2.4ms)[0m  SELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = ? LIMIT 1  [["cart_id", 22]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 22]]
+  Rendered collection (0.1ms)
+  Rendered carts/_cart.html.erb (3.5ms)
+Completed 200 OK in 959ms (Views: 766.1ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/images/ddddd" for 127.0.0.1 at 2015-06-13 02:15:36 -0700
+
+ActionController::RoutingError (No route matches [GET] "/images/ddddd"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (35.7ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (275.6ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (16.3ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (88.0ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (4.8ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (15.7ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (191.3ms)
+
+
+Started GET "/bulletins/2/posts" for 127.0.0.1 at 2015-06-13 02:15:37 -0700
+Processing by PostsController#index as HTML
+  Parameters: {"bulletin_id"=>"2"}
+  [1m[35mBulletin Load (6.7ms)[0m  SELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1[0m  [["id", 22]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."title" ASC
+  Rendered posts/post_types/_store.html.erb (37.1ms)
+  Rendered posts/index.html.erb within layouts/application (44.8ms)
+  [1m[36mLineItem Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = ? LIMIT 1[0m  [["cart_id", 22]]
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 22]]
+  Rendered collection (0.0ms)
+  Rendered carts/_cart.html.erb (1.5ms)
+Completed 200 OK in 172ms (Views: 146.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/images/ddddd" for 127.0.0.1 at 2015-06-13 02:15:38 -0700
+
+ActionController::RoutingError (No route matches [GET] "/images/ddddd"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.6ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (172.5ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (3.9ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (98.3ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (8.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (207.8ms)
+
+
+Started GET "/bulletins/3/posts" for 127.0.0.1 at 2015-06-13 02:15:39 -0700
+Processing by PostsController#index as HTML
+  Parameters: {"bulletin_id"=>"3"}
+  [1m[36mBulletin Load (0.3ms)[0m  [1mSELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCart Load (4.5ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 22]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."title" ASC[0m
+  Rendered posts/post_types/_store.html.erb (21.1ms)
+  Rendered posts/index.html.erb within layouts/application (27.9ms)
+  [1m[35mLineItem Exists (0.1ms)[0m  SELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = ? LIMIT 1  [["cart_id", 22]]
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 22]]
+  Rendered collection (0.0ms)
+  Rendered carts/_cart.html.erb (1.9ms)
+Completed 200 OK in 256ms (Views: 226.8ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/images/ddddd" for 127.0.0.1 at 2015-06-13 02:15:40 -0700
+
+ActionController::RoutingError (No route matches [GET] "/images/ddddd"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/cwh/.rvm/rubies/ruby-2.0.0-p643/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.7ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.6ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (111.8ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (11.7ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (87.6ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/cwh/.rvm/gems/ruby-2.0.0-p643/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (154.7ms)
+
+
+Started GET "/bulletins/" for 127.0.0.1 at 2015-06-13 02:15:44 -0700
+Processing by BulletinsController#index as HTML
+  [1m[35mBulletin Load (7.0ms)[0m  SELECT "bulletins".* FROM "bulletins"
+  Rendered bulletins/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 325ms (Views: 316.3ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/bulletins/1" for 127.0.0.1 at 2015-06-13 02:15:46 -0700
+Processing by BulletinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBulletin Load (2.2ms)[0m  [1mSELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered bulletins/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 149ms (Views: 142.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/bulletins/1/edit" for 127.0.0.1 at 2015-06-13 02:15:50 -0700
+Processing by BulletinsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBulletin Load (2.8ms)[0m  SELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered bulletins/_form.html.erb (524.5ms)
+  Rendered bulletins/edit.html.erb within layouts/application (552.7ms)
+Completed 200 OK in 706ms (Views: 698.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/bulletins" for 127.0.0.1 at 2015-06-13 02:15:53 -0700
+Processing by BulletinsController#index as HTML
+  [1m[36mBulletin Load (0.3ms)[0m  [1mSELECT "bulletins".* FROM "bulletins"[0m
+  Rendered bulletins/index.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 139ms (Views: 137.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-13 02:18:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 376ms (Views: 365.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-13 02:20:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 373ms (Views: 364.0ms | ActiveRecord: 0.0ms)

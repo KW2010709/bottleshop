@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Bottle_type:</strong>
-  <%= @product.bottle_type %>
-</p>
+
 
 <p>
   <strong>Title:</strong>

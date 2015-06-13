@@ -64,12 +64,13 @@ ActiveRecord::Schema.define(version: 20150604084756) do
   add_index "posts", ["bulletin_id"], name: "index_posts_on_bulletin_id"
 
   create_table "products", force: :cascade do |t|
+    t.string   "bottle_type"
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",       precision: 8, scale: 2
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.decimal  "price",       precision: 8
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

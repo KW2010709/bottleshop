@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :bottle_type %><br>
-    <%= f.select :bottle_type, Product::BOTTLE_TYPES, :prompt => 'Select a type of Bottle' %>
-  </div>
-
+ 
 
   <div class="field">
     <%= f.label :title %><br>

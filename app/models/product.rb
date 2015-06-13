@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 class Product < ActiveRecord::Base
+  BOTTLE_TYPES = ["소주", "와인", "보드카"]
   has_many :line_items
   has_many :orders, through: :line_items
 
