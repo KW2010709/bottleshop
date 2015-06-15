@@ -17,24 +17,22 @@
 <body class="<%= controller.controller_name %>">
 <!-- START_HIGHLIGHT -->
   <div id="banner">
-    <%= image_tag("http://postfiles11.naver.net/20150518_218/knnk6807_1431956450490ATkKf_JPEG/pic1.jpg?type=w3", size:"260x110") %>
-  
+	<a href="http://localhost:3000"> 
+   <%= image_tag("http://postfiles11.naver.net/20150518_218/knnk6807_1431956450490ATkKf_JPEG/pic1.jpg?type=w3", size:"260x110") %>
+	</a>
+	<a href="http://localhost:3000">
     <%= @page_title || "U Drink ME? I Drink U!" %> 
-  </div>
+</a> 
+ </div>
 <!-- END_HIGHLIGHT -->  
   <div id="columns">
     <div id="topMenu">
       <ul>
-        <li><a class="menuLInk" href="http://www....">Home</a></li>
-        <li class="<%= params[:bulletin_id] == '1' ? 'active' : '' %>"><%= link_to '소주', bulletin_posts_path('1') %></li>
-	<li class="<%= params[:bulletin_id] == '2' ? 'active' : '' %>"><%= link_to '와인', bulletin_posts_path('2') %></li>
-        <li class="<%= params[:bulletin_id] == '3' ? 'active' : '' %>"><%= link_to '보드카', bulletin_posts_path('3') %></li>
-	<li class="<%= params[:bulletin_id] == '4' ? 'active' : '' %>"><%= link_to 'Q&A', bulletin_posts_path('4') %></li>
-	<li class="<%= params[:bulletin_id] == '5' ? 'active' : '' %>"><%= link_to '공지사항', bulletin_posts_path('5') %></li>
+        <li><a class="menuLInk" href="http://localhost:3000">Home</a></li>
+				<li><a class="menuLInk" href="http://localhost:3000">아몰랑 술살랭</a></li>
+				<li class="<%= params[:bulletin_id] == '4' ? 'active' : '' %>"><%= link_to 'Q&A', bulletin_posts_path('4') %></li>
+				<li class="<%= params[:bulletin_id] == '5' ? 'active' : '' %>"><%= link_to '공지사항', bulletin_posts_path('5') %></li>
 
-        <li><a class="menuLInk" href="store/index">보드카</a></li>
-
-        <li><a class="menuLInk" href="http://www..../contact">Contact</a></li>    </ul>
     </div> <br>
    <div id="side">
      <!-- START_HIGHLIGHT -->
