@@ -1,11 +1,11 @@
-<h2>Bulletins</h2>
+<h2>글쓰기</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Data actions</th>
+      <th>제목</th>
+      <th>내용</th>
+      <th>글 편집하기</th>
     </tr>
   </thead>
 
@@ -15,9 +15,9 @@
         <td><%= bulletin.title %></td>
         <td><%= bulletin.description %></td>
         <td>
-          <%= link_to 'Show', bulletin, class: 'btn btn-default' %>
-          <%= link_to 'Edit', edit_bulletin_path(bulletin), class: 'btn btn-default' %>
-          <%= link_to 'Destroy', bulletin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+          <%= link_to '글 보기', bulletin, class: 'btn btn-default' %>
+          <%= link_to '편집하기', edit_bulletin_path(bulletin), class: 'btn btn-default' %>
+          <%= link_to '삭제하기', bulletin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
         </td>
       </tr>
     <% end %>
@@ -26,5 +26,5 @@
 
 <br>
 
-<%= link_to 'New Bulletin', new_bulletin_path, class: 'btn btn-default' %>
+<%= link_to '글쓰기', new_bulletin_path, class: 'btn btn-default' %>
 

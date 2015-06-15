@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Bottle_type:</strong>
+  <strong>주류 종류:</strong>
   <%= @product.bottle_type %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>상품명:</strong>
   <%= @product.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>상품 설명:</strong>
   <%= @product.description %>
 </p>
 
 <p>
-  <strong>Image url:</strong>
+  <strong>상품 사진:</strong>
   <%= @product.image_url %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>가격:</strong>
   <%= @product.price %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to '상품 편집', edit_product_path(@product) %> |
+<%= link_to '뒤로', products_path %>

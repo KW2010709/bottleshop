@@ -4,7 +4,7 @@
 
 <%= render @cart %>
 <!-- START_HIGHLIGHT -->
-<div class="cart_title">Your Cart</div>
+<div class="cart_title">장바구니 목록</div>
 <table>
     <%= render(@cart.line_items) %>
 <!-- END_HIGHLIGHT -->
@@ -28,7 +28,7 @@
 </table>
 <!-- END_HIGHLIGHT -->
 
-<%= button_to 'Empty cart', @cart, method: :delete,
+<%= button_to '장바구니 비우기', @cart, method: :delete,
     data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= link_to '목록 편집', edit_cart_path(@cart) %> |
+<%= link_to '뒤로', carts_path %>

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>이름:</strong>
   <%= @order.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>주소:</strong>
   <%= @order.address %>
 </p>
 
@@ -16,9 +16,9 @@
 </p>
 
 <p>
-  <strong>Pay type:</strong>
+  <strong>결제 선택:</strong>
   <%= @order.pay_type %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to '상품 편집', edit_order_path(@order) %> |
+<%= link_to '뒤로', orders_path %>

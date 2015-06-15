@@ -1,23 +1,23 @@
-<h2>Preview Bulletin</h2>
+<h2>미리보기</h2>
 
 <table class='table table-bordered'>
 <tr>
-  <th>Title</th>
+  <th>제목</th>
   <td><%= @bulletin.title %></td>
 </tr>
 <tr>
-  <th>Description</th>
+  <th>내용</th>
   <td><%= @bulletin.description %></td>
 </tr>
 <tr>
-  <th>Created at</th>
+  <th>작성일</th>
   <td><%= @bulletin.created_at %></td>
 </tr>
 <tr>
-  <th>Post Type</th>
+  <th>글 유형</th>
   <td><%= @bulletin.post_type %></td>
 </tr>
 </table>
 
-<%= link_to 'Edit', edit_bulletin_path(@bulletin), class: 'btn btn-default' %>
-<%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
+<%= link_to '수정하기', edit_bulletin_path(@bulletin), class: 'btn btn-default' %>
+<%= link_to '뒤로', bulletins_path, class: 'btn btn-default' %>

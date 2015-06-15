@@ -12,7 +12,7 @@
       <tr>
         <td><%= post.title %> </td>
         <td>
-          <%= link_to '@posts.title' , [post.bulletin, post], class:'btn btn-default' %>
+          <%= link_to '글 보기' , [post.bulletin, post], class:'btn btn-default' %>
         </td>
       </tr>
     <% end %>
@@ -20,4 +20,4 @@
 </table>
 
 
-<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>
+<%= link_to '글쓰기', new_bulletin_post_path, class: 'btn btn-default' %>

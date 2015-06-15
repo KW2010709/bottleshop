@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing products</h1>
+<h1>상품 목록</h1>
 
 <table>
 <% @products.each do |product| %>
@@ -17,13 +17,13 @@
     </td>
     <td><%= product.price %>원</td>
     <td class="list_actions">
-      <%= link_to 'Show', product %><br/>
-      <%= link_to 'Edit', edit_product_path(product) %><br/>
-      <%= link_to 'Destroy', product, method: :delete,
+      <%= link_to '상품 보기', product %><br/>
+      <%= link_to '상품 편집', edit_product_path(product) %><br/>
+      <%= link_to '상품 삭제', product, method: :delete,
                   data: { confirm: 'Are you sure?' } %>
     </td>
   </tr>
 <% end %>
 </table>
 <br />
-<%= link_to 'New product', new_product_path %>
+<%= link_to '상품 추가', new_product_path %>
